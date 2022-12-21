@@ -1,0 +1,8 @@
+componentConfig: true
+domain: akash-pathak.vercel.app
+layout:
+- go.kubebuilder.io/v4-alpha
+multigroup: true
+projectName: k8s-cost-forecaster
+repo: github.com/0prodigy/k8s-cost-forecaster
+version: "3"
