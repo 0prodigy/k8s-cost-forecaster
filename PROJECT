@@ -1,8 +1,18 @@
 componentConfig: true
-domain: akash-pathak.vercel.app
+domain: k8s-cf.io
 layout:
 - go.kubebuilder.io/v4-alpha
 multigroup: true
 projectName: k8s-cost-forecaster
 repo: github.com/0prodigy/k8s-cost-forecaster
+resources:
+- api:
+    crdVersion: v1
+    namespaced: true
+  controller: true
+  domain: k8s-cf.io
+  group: const-forecaster
+  kind: CostForecaster
+  path: github.com/0prodigy/k8s-cost-forecaster/apis/const-forecaster/v1alpha1
+  version: v1alpha1
 version: "3"

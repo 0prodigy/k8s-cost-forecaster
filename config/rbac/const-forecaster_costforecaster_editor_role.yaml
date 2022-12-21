@@ -1,0 +1,31 @@
+# permissions for end users to edit costforecasters.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  labels:
+    app.kubernetes.io/name: clusterrole
+    app.kubernetes.io/instance: costforecaster-editor-role
+    app.kubernetes.io/component: rbac
+    app.kubernetes.io/created-by: k8s-cost-forecaster
+    app.kubernetes.io/part-of: k8s-cost-forecaster
+    app.kubernetes.io/managed-by: kustomize
+  name: costforecaster-editor-role
+rules:
+- apiGroups:
+  - const-forecaster.k8s-cf.io
+  resources:
+  - costforecasters
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - const-forecaster.k8s-cf.io
+  resources:
+  - costforecasters/status
+  verbs:
+  - get

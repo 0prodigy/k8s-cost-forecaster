@@ -1,0 +1,27 @@
+# permissions for end users to view costforecasters.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  labels:
+    app.kubernetes.io/name: clusterrole
+    app.kubernetes.io/instance: costforecaster-viewer-role
+    app.kubernetes.io/component: rbac
+    app.kubernetes.io/created-by: k8s-cost-forecaster
+    app.kubernetes.io/part-of: k8s-cost-forecaster
+    app.kubernetes.io/managed-by: kustomize
+  name: costforecaster-viewer-role
+rules:
+- apiGroups:
+  - const-forecaster.k8s-cf.io
+  resources:
+  - costforecasters
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - const-forecaster.k8s-cf.io
+  resources:
+  - costforecasters/status
+  verbs:
+  - get
